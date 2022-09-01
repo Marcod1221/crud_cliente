@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Angular 13 CRUD Example</h1>
+   
+    <a href="#" routerLink="/product/create/" class="btn btn-success">Agregar Cliente</a>
+     
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>dpi</th>
+        <th width="220px">Opciones</th>
+      </tr>
+      <tr *ngFor="let cliente of clients">
+        <td>{{ cliente.id_cliente}}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.dpi }}</td>
+        <td>
+          <button type="button" (click)="viewClient(cliente.id_cliente)" class="btn btn-primary">Ver</button>
+          <button type="button" (click)="editClient(cliente.id_cliente)" class="btn btn-info">Editar</button>
+          <button type="button" (click)="deleteClient(cliente.id_cliente)" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </table>
+ </div>
