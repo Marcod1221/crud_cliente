@@ -1,1 +1,58 @@
-<p>create works!</p>
+<div class="container">
+    <h1>Agregar producto</h1>
+   
+    <a href="#" routerLink="/product/index" class="btn btn-primary">Regresar</a>
+         
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+   
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input
+                formControlName="nombre"
+                id="nombre"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">El nombre es obligatorio.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dpi">dpi:</label>
+            <input
+                formControlName="dpi"
+                id="dpi"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['dpi'].touched && f['dpi'].invalid" class="alert alert-danger">
+                <div *ngIf="f['dpi'].errors && f['dpi'].errors['required']">El nombre es obligatorio.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="correo">Correo:</label>
+            <input
+                formControlName="correo"
+                id="correo"
+                type="email"
+                class="form-control">
+            <div *ngIf="f['correo'].touched && f['correo'].invalid" class="alert alert-danger">
+                <div *ngIf="f['correo'].errors && f['correo'].errors['required']">El codigo es obligatorio.</div>
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input
+                formControlName="telefono"
+                id="telefono"
+                type="text"
+                class="form-control"/>            
+            <div *ngIf="f['telefono'].touched && f['telefono'].invalid" class="alert alert-danger">
+                <div *ngIf="f['telefono'].errors && f['telefono'].errors['required']">El precio es obligatorio.</div>
+            </div>
+        </div>
+   
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Guardar</button>
+    </form>
+</div>

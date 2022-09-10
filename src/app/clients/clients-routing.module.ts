@@ -7,7 +7,7 @@ import { ViewComponent } from './view/view.component';
 const routes: Routes = [
   { path: 'clients', redirectTo: 'clients/index', pathMatch: 'full'},
   { path: 'clients/index', component: IndexComponent },
-  { path: 'clients/:productId/view', component: ViewComponent },
+  { path: 'clients/:idcliente/view', component: ViewComponent },
   { path: 'clients/create', component: CreateComponent }
   //{ path: 'clients/:productId/edit', component: EditComponent } 
 ];

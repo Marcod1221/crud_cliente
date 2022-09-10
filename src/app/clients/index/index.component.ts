@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client';
-import { ApiClientService } from '../../services/api-client.service';
+import { ApiClientService } from 'src/app/services/api-client.service';
 
 @Component({
   selector: 'app-index',
@@ -10,20 +10,21 @@ import { ApiClientService } from '../../services/api-client.service';
 })
 export class IndexComponent implements OnInit {
 
-  clients: Client[] = [];
+  clientes: Client[] = [];
   constructor(
-    public clientService: ApiClientService,
+    public apiClientService: ApiClientService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.clientService.getAll().subscribe((data: Client[])=>{
-      this.clients = data;
+    this.apiClientService.getAll().subscribe((data: any[])=>{
+      this.clientes = data;
+      console.log(data);
     })
   }
 
-  viewClient(id:number){
-    this.router.navigateByUrl('cliente/' + id + 'view');
+  viewClient(id_cliente:number){
+    this.router.navigateByUrl('clients/' + id_cliente + '/view');
   }
 
   editClient(id:number){
@@ -31,6 +32,6 @@ export class IndexComponent implements OnInit {
   }
 
   deleteClient(id:number){
-    
+
   }
 }

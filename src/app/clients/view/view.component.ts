@@ -10,7 +10,7 @@ import { Client } from '../../models/client';
 })
 export class ViewComponent implements OnInit {
 
-  id_cliente: number = 0;
+  id_cliente!: number;
   cliente: Client = new Client();
 
   constructor(
@@ -20,7 +20,7 @@ export class ViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id_cliente = this.rotue.snapshot.params['id_cliente'];
+    this.id_cliente = this.rotue.snapshot.params['idcliente'];
 
     this.apiClientService.find(this.id_cliente).subscribe((data: Client) => {
         this.cliente = data;

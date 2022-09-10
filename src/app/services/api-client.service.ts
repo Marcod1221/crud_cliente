@@ -21,18 +21,26 @@ export class ApiClientService {
   constructor(private httpClient: HttpClient) { }
     
   getAll(): Observable<Client[]> {
-    return this.httpClient.get<Client[]>(this.apiURL + '/cliente')
+    return this.httpClient.get<Client[]>(this.apiURL + '/client')
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  find(id_cliente: number): Observable<Client> {
-    return this.httpClient.get<Client>(this.apiURL + '/cliente/' + id_cliente)
+  find(id: number): Observable<Client> {
+    return this.httpClient.get<Client>(this.apiURL + '/client/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
+
+  create(client: Client): Observable<Client> {
+    return this.httpClient.post<Client>(this.apiURL + '/client', JSON.stringify(client), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }  
+
 
   errorHandler(error: any) {
     let errorMessage = '';
